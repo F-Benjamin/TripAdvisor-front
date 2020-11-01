@@ -1,0 +1,519 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>🚀 TripAdvisor 🚀</title>
+    <script
+      src="https://kit.fontawesome.com/fedf5f0d30.js"
+      crossorigin="anonymous"
+    ></script>
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+    <script src="./assets/js/main.js"></script>
+    <link rel="stylesheet" href="./assets/css/reset.css" />
+    <link rel="stylesheet" href="./assets/css/fonts.css" />
+    <link rel="stylesheet" href="./assets/css/styles.css" />
+  </head>
+  <body>
+    <div class="modal show-modal">
+      <div class="form-container">
+        <i class="fas fa-times" id="close-modal"></i>
+        <form class="contact-form" id="contact-form">
+          <h2>Formulaire d'inscription</h2>
+          <input
+            type="text"
+            name="firstname"
+            id="firstname"
+            placeholder="Prénom"
+          />
+          <input type="text" name="lastname" id="lastname" placeholder="Nom" />
+          <input
+            type="password"
+            name="password"
+            id="password"
+            placeholder="Mot de passe"
+          />
+          <input
+            type="email"
+            name="email"
+            id="email"
+            placeholder="Adresse Mail"
+          />
+          <textarea
+            name="description"
+            id="description"
+            cols="30"
+            rows="7"
+            placeholder="Présentez vous :)"
+          ></textarea>
+          <input type="submit" value="Envoyer le formulaire" />
+        </form>
+      </div>
+    </div>
+
+    <header>
+      <div class="container">
+        <i class="fas fa-bars hidden"></i>
+        <img src="./assets/img/logo tripadvisor.svg" alt="logo" />
+        <i class="fas fa-search hidden"></i>
+        <div class="search"><i class="fas fa-search"></i></div>
+        <nav>
+          <div>
+            <i style="color: blue" class="far fa-plus-square"></i
+            ><span>Publier</span>
+          </div>
+          <div>
+            <i style="color: red" class="far fa-heart"></i><span>Voyages</span>
+          </div>
+          <div>
+            <i style="color: yellowgreen" class="far fa-bell"></i
+            ><span>Alertes</span>
+          </div>
+          <button id="login">Login</button>
+        </nav>
+      </div>
+    </header>
+    <main>
+      <div class="container">
+        <h1><span>Explorez</span> Annecy</h1>
+        <nav class="nav-menu">
+          <div>
+            <span
+              ><a
+                href="https://www.tripadvisor.fr/Hotels-g187260-Annecy_Haute_Savoie_Auvergne_Rhone_Alpes-Hotels.html"
+                >Hôtels</a
+              ></span
+            ><i class="fas fa-bed"></i>
+          </div>
+
+          <div>
+            <span
+              ><a
+                href="https://www.tripadvisor.fr/VacationRentals-g187260-Reviews-Annecy_Haute_Savoie_Auvergne_Rhone_Alpes-Vacation_Rentals.html"
+                >Locations de vacances</a
+              ></span
+            ><i class="fas fa-home"></i>
+          </div>
+          <div>
+            <span
+              ><a
+                href="https://www.tripadvisor.fr/Attractions-g187260-Activities-Annecy_Haute_Savoie_Auvergne_Rhone_Alpes.html"
+                >Activités</a
+              ></span
+            ><i class="fas fa-hiking"></i>
+          </div>
+          <div>
+            <span
+              ><a
+                href="https://www.tripadvisor.fr/Restaurants-g187260-Annecy_Haute_Savoie_Auvergne_Rhone_Alpes.html"
+                >Restaurants</a
+              ></span
+            ><i class="fas fa-utensils"></i>
+          </div>
+          <div>
+            <span
+              ><a
+                href="https://www.tripadvisor.fr/ShowForum-g187260-i1091-Annecy_Haute_Savoie_Auvergne_Rhone_Alpes.html"
+                >Forums de voyage</a
+              ></span
+            ><i class="far fa-comment-alt"></i>
+          </div>
+          <div>
+            <span
+              ><a
+                href="https://www.tripadvisor.fr/Flights-g187260-Annecy_Haute_Savoie_Auvergne_Rhone_Alpes-Cheap_Discount_Airfares.html"
+                >Vols</a
+              ></span
+            ><i class="fas fa-plane-departure"></i>
+          </div>
+          <div>
+            <span
+              ><a
+                href="https://www.tripadvisor.fr/RentalCars-g187260-Annecy_Haute_Savoie_Auvergne_Rhone_Alpes.html"
+                >Voitures de location</a
+              ></span
+            ><i class="fas fa-car-alt"></i>
+          </div>
+          <div><span>Plus</span><i class="fas fa-ellipsis-h"></i></div>
+        </nav>
+        <div class="pictures">
+          <div class="col-1">
+            <img
+              src="./assets/img/annecy montbaron.jpg"
+              alt="Annecy vue du mont baron"
+            />
+          </div>
+          <div class="col-2">
+            <img
+              src="./assets/img/iStock-870762118.jpg"
+              alt="annecy vue bout du lac"
+            /><img
+              src="./assets/img/Annecy-La-vieille-ville-et-le-Thiou_default_format.jpg"
+              alt="annecy vielle ville"
+            />
+          </div>
+        </div>
+
+        <nav class="recherche">
+          <div class="col-1">
+            <h2>Informations sur Annecy</h2>
+            <div>
+              Annecy, la préfecture de la Haute-Savoie déborde de charme,
+              d'authenticité et de style. Située à l'extrémité sud du lac
+              d'Annecy et entourée par les sommets enneigés des Alpes, on peut
+              s'y reposer ou bien y pratiquer des sports nautiques. C'est un
+              pied-à-terre idéal pour les amateurs d'escalade, de parapente, de
+              VTT et de randonnée à cheval. Le quartier médiéval est merveilleux
+              avec ses canaux et ses petits ponts décorés de fleurs. En été,
+              n'hésitez pas à faire une visite guidée de la ville ou une
+              croisière en bateau sur le lac pour profiter des excellents
+              restaurants des environs.
+            </div>
+          </div>
+          <div class="col-2">
+            <div>
+              <h3>Commencez à organiser Annecy</h3>
+              <p>
+                Créez un voyage pour enregistrer et organiser toutes vos idées
+                et les visualiser sur une carte.
+              </p>
+              <button>Créez un voyage</button>
+            </div>
+            <div></div>
+          </div>
+        </nav>
+
+        <section class="section1">
+          <div class="title">
+            <div></div>
+            <h2>Conseils de voyage</h2>
+            <div></div>
+          </div>
+
+          <div>
+            <div>
+              <img src="./assets/img/fact.svg" alt="Meilleure période" /><span
+                >Meilleure période pour visiter</span
+              >
+            </div>
+            <div>
+              <img
+                src="./assets/img/fact_sheet_getting_around.svg"
+                alt="Se déplacer"
+              /><span>Se déplacer</span>
+            </div>
+            <div>
+              <img
+                src="./assets/img/fact_sheet_local_customs.svg"
+                alt="Coutumes locales"
+              /><span>Coutumes locales</span>
+            </div>
+            <div>
+              <img src="./assets/img/fact_sheet_tips.svg" alt="tips" /><span
+                >Conseils de pros</span
+              >
+            </div>
+          </div>
+        </section>
+
+        <section class="section2">
+          <div class="title">
+            <div></div>
+            <h2>Immanquable à Annecy</h2>
+            <div></div>
+          </div>
+
+          <div class="carou">
+            <div class="texts">
+              <h3>Se divertir</h3>
+              <p>
+                Des lieux à voir, des rues à explorer et des expériences
+                emblématiques.
+              </p>
+            </div>
+
+            <div class="carrousel">
+              <div class="scroll">
+                <div class="relative">
+                  <img src="./assets/img/lac-d-annecy.jpg" alt="lac d'annecy" />
+                  <div class="coeur"><i class="far fa-heart"></i></div>
+                </div>
+                <span>Lac d'Annecy</span>
+
+                <div>
+                  <i class="fas fa-circle"></i><i class="fas fa-circle"></i
+                  ><i class="fas fa-circle"></i><i class="fas fa-circle"></i
+                  ><i class="fas fa-circle"></i> <span>6 697 avis</span>
+                  <div>Plan d'eau</div>
+                </div>
+              </div>
+              <div class="scroll">
+                <div class="relative">
+                  <img
+                    src="./assets/img/vue-du-lac-depuis-le.jpg"
+                    alt="photo en parapente"
+                  />
+                  <div class="coeur"><i class="far fa-heart"></i></div>
+                </div>
+                <span>Parapente</span>
+                <div>
+                  <i class="fas fa-circle"></i><i class="fas fa-circle"></i
+                  ><i class="fas fa-circle"></i><i class="fas fa-circle"></i
+                  ><i class="fas fa-circle"></i> <span>5 000 avis</span>
+                  <div>Activités</div>
+                </div>
+              </div>
+              <div class="scroll">
+                <div class="relative">
+                  <img
+                    src="./assets/img/Annecy-La-vieille-ville-et-le-Thiou_default_format.jpg"
+                    alt="Vieille Ville"
+                  />
+                  <div class="coeur"><i class="far fa-heart"></i></div>
+                </div>
+                <span>La Vieille Ville</span>
+                <div>
+                  <i class="fas fa-circle"></i><i class="fas fa-circle"></i
+                  ><i class="fas fa-circle"></i><i class="fas fa-circle"></i
+                  ><i class="fas fa-circle"></i> <span>4 514 avis</span>
+                  <div>Monuments & Points d'intérêt</div>
+                </div>
+              </div>
+              <div class="scroll">
+                <div class="relative">
+                  <img
+                    src="./assets/img/fields-are-surrounded.jpg"
+                    alt="Semnoz"
+                  />
+                  <div class="coeur"><i class="far fa-heart"></i></div>
+                </div>
+                <span>Semnoz</span>
+                <div>
+                  <i class="fas fa-circle"></i><i class="fas fa-circle"></i
+                  ><i class="fas fa-circle"></i><i class="fas fa-circle"></i
+                  ><i class="fas fa-circle"></i> <span>770 avis</span>
+                  <div>Montagnes</div>
+                </div>
+              </div>
+              <div class="scroll">
+                <div class="relative">
+                  <img src="./assets/img/il-ponte.jpg" alt="Pont des amours" />
+                  <div class="coeur"><i class="far fa-heart"></i></div>
+                </div>
+                <span>Pont des Amours</span>
+                <div>
+                  <i class="fas fa-circle"></i><i class="fas fa-circle"></i
+                  ><i class="fas fa-circle"></i><i class="fas fa-circle"></i
+                  ><i class="fas fa-circle"></i> <span>1 005 avis</span>
+                  <div>Ponts, Monuments & Points d'intérêt</div>
+                </div>
+              </div>
+              <div class="scroll">
+                <div class="relative">
+                  <img
+                    src="./assets/img/chateau-d-annecy.jpg"
+                    alt="Chateau d'annecy"
+                  />
+                  <div class="coeur"><i class="far fa-heart"></i></div>
+                </div>
+                <span>Chateau d'Annecy</span>
+                <div>
+                  <i class="fas fa-circle"></i><i class="fas fa-circle"></i
+                  ><i class="fas fa-circle"></i><i class="fas fa-circle"></i>
+                  <span>757 avis</span>
+                  <div>Sites historiques, Musées spécialisés</div>
+                </div>
+              </div>
+              <div class="scroll">
+                <div class="relative">
+                  <img
+                    src="./assets/img/la-tournette.jpg"
+                    alt="La la-tournette"
+                  />
+                  <div class="coeur"><i class="far fa-heart"></i></div>
+                </div>
+                <span>La Tournette</span>
+                <div>
+                  <i class="fas fa-circle"></i><i class="fas fa-circle"></i
+                  ><i class="fas fa-circle"></i> <span>273 avis</span>
+                  <div>Montagnes</div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="carou">
+            <div class="texts">
+              <h3>Se reposer</h3>
+              <p>Un mélange de charme, de modernité et de valeurs sûres.</p>
+            </div>
+
+            <div class="carrousel">
+              <div class="scroll">
+                <div class="relative">
+                  <img
+                    src="./assets/img/splendid hotel.jpg"
+                    alt="Hotel splendid"
+                  />
+                  <div class="coeur"><i class="far fa-heart"></i></div>
+                </div>
+                <span>Splendid Hôtel</span>
+
+                <div>
+                  <i class="fas fa-circle"></i><i class="fas fa-circle"></i
+                  ><i class="fas fa-circle"></i><i class="fas fa-circle"></i>
+                  <span>1 013 avis</span>
+                </div>
+              </div>
+              <div class="scroll">
+                <div class="relative">
+                  <img
+                    src="./assets/img/atipik-hotel-alexandra.jpg"
+                    alt="Atipik hotel"
+                  />
+                  <div class="coeur"><i class="far fa-heart"></i></div>
+                </div>
+                <span>Atipik Hôtel Alexandra</span>
+                <div>
+                  <i class="fas fa-circle"></i><i class="fas fa-circle"></i
+                  ><i class="fas fa-circle"></i><i class="fas fa-circle"></i
+                  ><i class="fas fa-circle"></i> <span>1 047 avis</span>
+                </div>
+              </div>
+              <div class="scroll">
+                <div class="relative">
+                  <img
+                    src="./assets/img/l-imperial-palace.jpg"
+                    alt="Imperial palace"
+                  />
+                  <div class="coeur"><i class="far fa-heart"></i></div>
+                </div>
+                <span>Imperial Palace</span>
+                <div>
+                  <i class="fas fa-circle"></i><i class="fas fa-circle"></i
+                  ><i class="fas fa-circle"></i><i class="fas fa-circle"></i
+                  ><i class="fas fa-circle"></i> <span>1 923 avis</span>
+                </div>
+              </div>
+              <div class="scroll">
+                <div class="relative">
+                  <img
+                    src="./assets/img/hotel-du-chateau.jpg"
+                    alt="Hotel du chateau"
+                  />
+                  <div class="coeur"><i class="far fa-heart"></i></div>
+                </div>
+                <span>Hôtel du Château</span>
+                <div>
+                  <i class="fas fa-circle"></i><i class="fas fa-circle"></i
+                  ><i class="fas fa-circle"></i><i class="fas fa-circle"></i
+                  ><i class="fas fa-circle"></i> <span>304 avis</span>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="carou">
+            <div class="texts">
+              <h3>Se restaurer</h3>
+              <p>Lieux incontournables où manger, boire et faire la fête.</p>
+            </div>
+
+            <div class="carrousel">
+              <div class="scroll">
+                <div class="relative">
+                  <img
+                    src="./assets/img/le-semper-fi.jpg"
+                    alt="Restaurant semper fi"
+                  />
+                  <div class="coeur"><i class="far fa-heart"></i></div>
+                </div>
+                <span>Le Semper fi</span>
+
+                <div>
+                  <i class="fas fa-circle"></i><i class="fas fa-circle"></i
+                  ><i class="fas fa-circle"></i><i class="fas fa-circle"></i
+                  ><i class="fas fa-circle"></i> <span>1 128 avis</span>
+                  <div>€€-€€€ Italienne, Saine</div>
+                </div>
+              </div>
+              <div class="scroll">
+                <div class="relative">
+                  <img src="./assets/img/cozna-restaurant.jpg" alt="Cozna" />
+                  <div class="coeur"><i class="far fa-heart"></i></div>
+                </div>
+                <span>Cozna</span>
+                <div>
+                  <i class="fas fa-circle"></i><i class="fas fa-circle"></i
+                  ><i class="fas fa-circle"></i><i class="fas fa-circle"></i>
+                  <span>412 avis</span>
+                  <div>€€-€€€ Française, Saine</div>
+                </div>
+              </div>
+              <div class="scroll">
+                <div class="relative">
+                  <img
+                    src="./assets/img/bicyclette rose.jpg"
+                    alt="brunch bicyclette rose"
+                  />
+                  <div class="coeur"><i class="far fa-heart"></i></div>
+                </div>
+                <span>La Bicyclette Rose</span>
+                <div>
+                  <i class="fas fa-circle"></i><i class="fas fa-circle"></i
+                  ><i class="fas fa-circle"></i><i class="fas fa-circle"></i
+                  ><i class="fas fa-circle"></i> <span>1 243 avis</span>
+                  <div>€-€€ Francaise, Brunch</div>
+                </div>
+              </div>
+              <div class="scroll">
+                <div class="relative">
+                  <img
+                    src="./assets/img/resto 1er mets.jpg"
+                    alt="Restaurant 1er mets"
+                  />
+                  <div class="coeur"><i class="far fa-heart"></i></div>
+                </div>
+                <span>Restaurant 1er Mets</span>
+                <div>
+                  <i class="fas fa-circle"></i><i class="fas fa-circle"></i
+                  ><i class="fas fa-circle"></i><i class="fas fa-circle"></i
+                  ><i class="fas fa-circle"></i> <span>608 avis</span>
+                  <div>€€€€ Francaise, Saine</div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+      </div>
+    </main>
+    <footer>
+      <div class="container">
+        <img
+          src="./assets/img/Tripadvisor_logoset_solid_green.svg"
+          alt="logo tripadvisor"
+        />
+        <div class="footertext">
+          Made at&nbsp
+          <a href="https://www.lereacteur.io/">Le Réacteur</a>&nbspby&nbsp
+          <a href="https://github.com/F-Benjamin">Benjamin Frier</a>&nbsp- 2020
+        </div>
+      </div>
+    </footer>
+  </body>
+</html>
+
+<!-- <div>
+            <div class="carroussel-images">
+              <img src="./assets/img/eiffel.jpg" alt="Tour Eiffel" />
+            </div>
+            <div class="favorite"></div>
+            <h4>Tour Eiffel</h4>
+            <div class="carrousel-reviews">
+              <i class="fas fa-circle"></i>
+              <i class="fas fa-circle"></i>
+              <i class="fas fa-circle"></i>
+              <i class="fas fa-circle"></i>
+              <i class="fas fa-circle"></i>
+              <p>140 000 avis</p>
+            </div>
+          </div> -->
